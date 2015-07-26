@@ -1,0 +1,39 @@
+{
+  "name": "whitelist-ips",
+  "version": "1.0.0",
+  "description": "Connect middleware for whitelisting by IP addresses.",
+  "main": "index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "coffee -c ./"
+  },
+  "keywords": [
+    "express",
+    "connect",
+    "whitelist",
+    "ip",
+    "ips"
+  ],
+  "author": "William Hilton",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "coffee-script": "^1.9.2",
+    "mocha": "^2.2.4",
+    "request": "^2.60.0"
+  },
+  "dependencies": {
+    "netmask": "^1.0.5"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wmhilton/whitelist-ips"
+  },
+  "bugs": {
+    "url": "https://github.com/wmhilton/whitelist-ips/issues"
+  },
+  "homepage": "https://github.com/wmhilton/whitelist-ips"
+}
