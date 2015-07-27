@@ -4,8 +4,8 @@
   "description": "Connect middleware for whitelisting by IP addresses.",
   "main": "index",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "coffee -c ./"
+    "test": "./node_modules/.bin/mocha",
+    "prepublish": "./node_modules/.bin/coffee -c ./"
   },
   "keywords": [
     "express",
