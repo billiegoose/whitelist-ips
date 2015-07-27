@@ -1,39 +1,39 @@
-Netmask = require('netmask').Netmask
 fs = require 'fs'
-#request = require 'request'
+ipRangeCheck = require 'ip-range-check'
+
+WhitelistIpError = (message) ->
+  e = new Error
+  e.name = "WhitelistIpError"
+  e.message = message
+  return e
 
 class Whitelist
-  @masks = []
+  @ranges = []
   constructor: (init) ->
     if init instanceof Array
       @loadFromArray init
-#    else if (typeof init is "string") && /^http/.test init
-#      @loadFromUrl init
     else if (typeof init is "string")
-      @loadFromFile init
+      if /^common/.test(init)
+        @loadFromFile __dirname + '/' + init
+      else
+        @loadFromFile init
     else
       throw Error "whitelist-ips Error: Unrecognized argument type #{typeof init}"
 
   loadFromArray: (lines) ->
-    lines = (line.trim() for line in lines when line.trim() != '')
-    @masks = (new Netmask(line) for line in lines)
+    @ranges = (line.trim() for line in lines when line.trim() != '')
 
   loadFromFile: (path) ->
     fs.readFile path, 'utf8', (err, data) =>
       return console.warn "whitelist-ips Error: ", err if err?
       @loadFromArray data.split('\n')
 
-#  loadFromUrl: (url) ->
-#    request url, (err, response, body) =>
-#      return console.warn "whitelist-ips Error: ", err if err?
-#      @loadFromArray body.split('\n')
-
   middleware: (req, res, next) ->
     ip = req.ip
-    for block in this.masks
-      if block.contains ip
-        return next()
-    return next Error "IP #{ip} not in whitelist"
+    if ipRangeCheck ip, @ranges
+      return next()
+    else
+      return next WhitelistIpError "IP #{ip} not in whitelist"
 
   # For debugging/testing purposes
   test: (list) ->
