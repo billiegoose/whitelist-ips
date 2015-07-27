@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- node
+deploy:
+  provider: npm
+  email: wmhilton@gmail.com
+  on:
+    node: 'node'
+    tags: true
+    branch: master
+    repo: wmhilton/whitelist-ips
+  api_key:
+    secure: xQTJcOugbbyH0wPJbpJO6wR+2S1rfeGLth8o14lWRvWrkM9USg2NfJaZtfW9zs9cULOO2LdMMN0T2XSRV7qREBxE4A0zAOwEB71iT3lY1PwjMYu1cM0NJbqPR9HWvv1vlSWHTadvH+y0GhEx/fxABAKM3k33GMB6uovYQ1mWCTQ6GQLZnz5EcbMnFNoUxwGVEuWQYmkiRPeNyOsATrqIfp+IRFdy2lq1OcuvdJ21og/bG21ww45JXv+0BXWH1SieoGYJ2i3z1DSWKkfs1KFtntgTN/5wFX8UKMQL9rVCCas4MSAhSSmXgwGxFtOO1LE/A5mx2PHReNyTi+92NFLS5ZC47QPqBL+M+XWPRPA4+WJ3cLtr/m7IQD3VjQylBzRXyffgrJsES1h/Yfu8Lnd2wWv2f7WUw/j7wW9BdMvxUrTiLidXas5uNbOEFmDS8WHMUquf1dajTXMtkaUt8pU13M5hy8LjxBFJe0hz3f4549Kx98ZoYa4dJn4FIjUyG1FeduP2hcQW//HLQJVcbJEmw2g5sfwobsU4rdYSUj2qNHT2Y5ZEk64qQ3FjjG9qqskGDiTkJNzxL7nXOe6Tje7azt4BUF6Md1acswJgK+d4g0EaoHxYKjJD7VG5FbUqMr9SdEa1uSXJZwm6Igac8bdZqTN5FVsUOrklc3Nc93Z2xZ4=
