@@ -22,7 +22,7 @@
     "mocha": "^2.2.4"
   },
   "dependencies": {
-    "ip-range-check": "0.0.1"
+    "ip-range-check": "0.0.2"
   },
   "directories": {
     "test": "test"
